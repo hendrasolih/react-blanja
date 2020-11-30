@@ -1,0 +1,48 @@
+@font-face {
+    font-family: "Metropolis Light";
+    src: url(../assets/fonts/metropolis.light.otf);
+  }
+  @font-face {
+    font-family: "Metropolis";
+    src: url(../assets/fonts/metropolis.regular.otf);
+  }
+  @font-face {
+    font-family: "Metropolis Semibold";
+    src: url(../assets/fonts/metropolis.semi-bold.otf);
+  }
+  
+  @font-face {
+    font-family: "Metropolis Bold";
+    src: url(../assets/fonts/metropolis.bold.otf);
+  }
+
+.font-light {
+  font-family: "Metropolis Light";
+}
+
+
+.fonts-regular {
+    font-family: "Metropolis";
+}
+
+.font-semi-bold {
+  font-family: "Metropolis Semibold";
+}
+
+.font-bold {
+  font-family: "Metropolis Bold";
+}
+
+.btn-info-product:hover,
+.btn-info-product:active,
+.btn-info-product:focus {
+  color: rgb(2, 2, 2) !important;
+  background-color: #ffffff !important;
+  border-color: black !important;
+}
+
+.btn-info-product-buy:hover,
+.btn-info-product-buy:active,
+.btn-info-product-buy:focus {
+  background-color:#DB3022 !important;
+}

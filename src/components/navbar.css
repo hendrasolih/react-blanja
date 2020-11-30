@@ -1,0 +1,77 @@
+body {
+    background-color: #f2f2f2;
+}
+
+.navbar {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+/* #basic-navbar-nav {
+    justify-content: flex-end;
+} */
+
+.control {
+    position: relative;
+    width: 50%;
+    margin-right: 20px;
+    margin-left: 5%;
+}
+
+.form-input {
+    width: 100%;
+}
+
+.form-inline {
+    width: 100%;
+    justify-content: flex-end;
+}
+
+input .form-control {
+    width: 50%;
+}
+
+.iconSearch {
+    position: absolute;
+    top: 30%;
+    right: 5%;
+}
+
+.funnel {
+    height: 20px;
+    width: 20px;
+}
+
+.btn-login {
+    border-radius: 24px;
+    border-color: #DB3022;
+    width: 10%;
+    background-color: #DB3022;
+    color: white;
+}
+
+.btn-signup {
+    border-radius: 24px;
+    border-color: gray;
+    width: 10%;
+    background-color: white;
+    color: gray;
+}
+
+.btn-login:hover,
+.btn-signup:hover,
+.btn-login:active,
+.btn-signup:active,
+.btn-login:focus,
+.btn-signup:focus {
+    background-color: #DB3022;
+    border-color: #DB3022;
+};
+
+.btn-cart:hover {
+    background-color: #DB3022 !important;
+}
+.cart {
+    width: 20px;
+    height: 20px;
+}
