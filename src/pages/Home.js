@@ -7,13 +7,16 @@ import CardProd from '../components/CardProd';
 import CardProdPopular from '../components/CardProdPupolar';
 
 export default class Home extends Component {
+  state = {
+    searchField: '',
+  }
   render() {
-    const { match, location, history } = this.props;
-    console.log("Home", match, location, history);
-    console.log(this.props);
+    // const { match, location, history } = this.props;
+    // console.log("Home", match, location, history);
+    // console.log(this.props);
     return (
       <>
-        <Navbar />
+        <Navbar placeholder="Enter Product Name" handleChange={(e)=> this.setState({searchField:e.target.value})}/>
         <Carousel />
         <Category />
         <CardProd />

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
+import { AiFillFileAdd } from "react-icons/ai";
 
 import {Navbar, Form, FormControl, Button, Image, Modal} from 'react-bootstrap';
 import logo from '../assets/img/logo-blanja.svg';
@@ -10,7 +12,7 @@ import './navbar.css';
 import {ColorWhite, ColorBlack, ColorThree, ColorFour, ColorFive, ColorSix,
   Size, SizePicked, Category, CategoryPicked, ModalButton, ModalButtonPicked} from '../components/styled/Modal';
 
-export default function NavbarPage() {
+export default function NavbarPage(props) {
         const [show, setShow] = useState(false);
         const handleClose = () => setShow(false);
         const handleShow = () => setShow(true);
@@ -18,20 +20,22 @@ export default function NavbarPage() {
     <>
       <Navbar bg="white" expand="sm" sticky="top" className="navbar">
         <Navbar.Brand href="#home">
-        <img
-          alt=""
-          src={logo}
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-        />{' '}
+        <Link to="/">
+          <img
+            alt=""
+            src={logo}
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{' '}
+        </Link>
         Blanja
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" expand="md" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Form inline className="form">
             <div className="control">
-              <FormControl type="text" placeholder="Search" className="w-100"/>
+              <FormControl type="search" placeholder={props.placeholder} className="w-100" onChange={props.handleChange}/>
               <Image src={iconSearch} className="iconSearch"/>
             </div>
             <Button onClick={handleShow} variant="outline-white" className="mr-auto">
@@ -46,6 +50,7 @@ export default function NavbarPage() {
             <Button variant="outline-success" className="btn-signup">Signup</Button>
           </Form>
         </Navbar.Collapse>
+        <Link to="/addproduct"><AiFillFileAdd/></Link>
       </Navbar>
 
       <Modal show={show} onHide={handleClose} animation={false}>

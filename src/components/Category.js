@@ -21,15 +21,23 @@ export default function Category() {
         <div>
           <Carousel breakPoints={breakPoints}>
             <Tshirt className="ctg-tshirt">
-            <Link to={`/category/shirt`} style={{color: "white"}}>T-shirt</Link>
+              <Link to={`/category/shirt`} style={{color: "white"}}>T-shirt</Link>
             </Tshirt>
-            <Short>Short</Short>
-            <Jacket>Jacket</Jacket>
-            <Pants>Pants</Pants>
+            <Short>
+              <Link to={`/category/short`} style={{color: "white"}}>Short</Link>
+            </Short>
+            <Jacket>
+              <Link to={`/category/jacket`} style={{color: "white"}}>Jacket</Link>
+            </Jacket>
+            <Pants>
+            <Link to={`/category/pants`} style={{color: "white"}}>Pants</Link>
+            </Pants>
             <Shoes>
               <Link to={`/category/shoes`} style={{color: "white"}}>Shoes</Link>
             </Shoes>
-            <Backpack>Backpack</Backpack>
+            <Backpack>
+            <Link to={`/category/backpak`} style={{color: "white"}}>Backpack</Link>
+            </Backpack>
             <Handbag>Handbag</Handbag>
             <Watch>Watch</Watch>
           </Carousel>

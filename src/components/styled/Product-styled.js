@@ -129,12 +129,22 @@ const Condition = styled.h4`
     line-height: 20px;
 `;
 
-const text = styled.p`
+const TextDescrip = styled.p`
     color: #9B9B9B;
 
+`;
+
+const ButtonUpdateDelete = styled.button`
+    background-color: #DB3022;
+    color: white;
+    border-color: none;
+    border-radius: 25px;
+    height: 48px;
+    font-size: 14px;
+    width: 25%;
 `;
 
 export {Wrapper, MainImg, ImageWrapper, InfoProduct, ProductName,
      BrandName, IconStar, ProductRating, ProductPriceLabel, ProducPrice,
      ColorLabel, ColorPicker, ButtonCart, ButtonBuyNow, InfoProdctText, InfoProdctTextTitle, Condition,
-     text };
+     TextDescrip, ButtonUpdateDelete };

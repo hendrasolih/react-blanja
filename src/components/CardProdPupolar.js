@@ -34,8 +34,10 @@ export default class CardProdPopular extends Component {
 
   render() {
     const { products } = this.state;
+    const { id } = this.props;
+    // console.log(id);
 
-    console.log(products);
+    // console.log(products);
     return (
       <>
         <Wrapper>

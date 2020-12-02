@@ -58,10 +58,16 @@ export default class CardProd extends Component {
                       </Card.Text>
                       <IconStar/><IconStar/><IconStar/><IconStar/><IconStar/>
                     </Card.Body>
+                    <hr/>
+                    <Link to={"/editproduct/" + prd_id}>
+                      <i className="fa fa-pencil-square-o" aria-hidden="true"/>
+                    </Link>
+                    <br />
                   </CardItem>
                 )
               }
             )}
+            
           </StyledCard>
         </Wrapper>
       </>

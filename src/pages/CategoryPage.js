@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import Navbar from '../components/Navbar';
 import { Wrapper, StyledCard, CardItem } from '../components/styled/Card-styled';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import {TextCategory, TypeCategory} from '../components/styled/CategoryPage-styled';
 import { IconStar } from '../components/styled/Product-styled';
 
@@ -32,15 +32,26 @@ export default class CategoryPage extends Component {
   componentDidMount = () => {
     this.getAllProducts()
   }
+
+  deleteProduct = () =>{
+    axios
+    .delete('http://localhost:8000/products/').then(()=>{
+      console.log('data bershasil dihapus')
+    }).catch((err) => {
+      console.log('Mengahapus gagal');
+    })
+
+  } 
   
 
   render() {
     const { products } = this.state;
-    const {match, location, history} = this.props;
+    const {match} = this.props;
+    // console.log(this.state.products.data.prd_id);
     // console.log(match, location, history);
     // console.log(location.pathname);
     // console.log(match.params.category);
-    console.log(this.state.id);
+    // console.log(this.state.products);
 
     return (
       <>
@@ -68,12 +79,12 @@ export default class CategoryPage extends Component {
                           {prd_brand}
                       </Card.Text>
                       <IconStar/><IconStar/><IconStar/><IconStar/><IconStar/>
-                      {/* <Button onClick={this.handleClick} value={prd_id}>Delete</Button> */}
                     </Card.Body>
                   </CardItem>
                 )
               }
             )}
+            {/* <Button onClick={this.deleteProduct}>Delete</Button> */}
           </StyledCard>
         </Wrapper>
       </>
