@@ -91,6 +91,7 @@ export default class Product extends Component {
           <Navbar />
           <ForProductPage key={product.prd_id} name={product.prd_name} brand={product.prd_brand}
           price={product.prd_price} description={product.prd_description} rating={product.prd_rating} delete={this.deleteProduct}/>
+          <CardProdPopular />
         </>
       );
     }

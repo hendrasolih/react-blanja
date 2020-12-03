@@ -66,7 +66,6 @@ export default function ForProductPage(props) {
               <Link to="/">
                 <ButtonUpdateDelete onClick={props.delete} className="mr-3 btn-info-product-buy">Delete</ButtonUpdateDelete>
               </Link>
-              <ButtonUpdateDelete className="mr-3 btn-info-product-buy">Update</ButtonUpdateDelete>
             </div>
         </InfoProduct>
       </Wrapper>

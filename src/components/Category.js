@@ -38,8 +38,12 @@ export default function Category() {
             <Backpack>
             <Link to={`/category/backpak`} style={{color: "white"}}>Backpack</Link>
             </Backpack>
-            <Handbag>Handbag</Handbag>
-            <Watch>Watch</Watch>
+            <Handbag>
+            <Link to={`/category/handbag`} style={{color: "white"}}>Handbag</Link>
+            </Handbag>
+            <Watch>
+            <Link to={`/category/watch`} style={{color: "white"}}>Watch</Link>
+            </Watch>
           </Carousel>
         </div>
       </Wrapper>

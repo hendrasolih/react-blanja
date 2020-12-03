@@ -16,7 +16,29 @@ export default class Carousel extends Component {
       dots: true,
       centerPadding: "60px",
       slidesToShow: 2,
-      speed: 500
+      speed: 500,
+      responsive: [
+        {
+          breakpoint: 1433,
+          settings: {
+          centerPadding: "20px",
+          slidesToShow: 1,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+          }
+        },
+        {
+          breakpoint: 1024,
+          settings: {
+          centerPadding: "20px",
+          slidesToShow: 1,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+          }
+        }
+      ]
     };
     return (
       <div className="carousel">

@@ -3,18 +3,33 @@ import { Image, Button } from 'react-bootstrap';
 import { BsFillStarFill } from "react-icons/bs";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 
+import {createBreakpoint, createMap} from 'styled-components-breakpoint';
+ 
+const breakpoints = {
+  xs: 0,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+};
+
+const breakpoint = createBreakpoint(breakpoints);
+
+
 const IconStar = styled(BsFillStarFill)`
     color: #FFBA49;
 `;
-
-
-
-
 
 const Wrapper = styled.section`
     margin-right: 10%;
     margin-left: 10%;
     margin-top: 10vh;
+
+    ${breakpoint('lg')`
+    font-size: 80%;
+    margin-right: 5%;
+    margin-left: 5%;
+  `}
 `;
 
 const MainImg = styled(Image)`
@@ -138,11 +153,12 @@ const TextDescrip = styled.p`
 const ButtonUpdateDelete = styled.button`
     background-color: #DB3022;
     color: white;
-    border-color: none;
+    border: none;
     border-radius: 25px;
     height: 48px;
     font-size: 14px;
     width: 25%;
+    margin-top: 15px;
 `;
 
 const AiOutlinePlusCircleStyled = styled(AiOutlinePlusCircle)`

@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
-  
-  // .App {
-  //   width: 100%;
-  //   min-height: 100vh;
-  //   background: #1c1e27;
-  //   display: flex;
-  // }
+import {createBreakpoint} from 'styled-components-breakpoint';
+ 
+const breakpoints = {
+  xs: 0,
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+};
+
+const breakpoint = createBreakpoint(breakpoints);
   
   const img = `
   display: block;
@@ -25,11 +29,14 @@ import styled from 'styled-components';
  
   const ImgSelected = styled.img`
     ${img};
-    width: auto;
+    width: 100%;
     height: 300px;
     margin: 0 auto;
     //border: 4px solid purple;
     object-fit: cover;
+    ${breakpoint('lg')`
+    widht: 80%;
+  `}
   `;
 
   const ImgContainer = styled.div`

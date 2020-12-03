@@ -19,7 +19,7 @@ export default function NavbarPage(props) {
   return (
     <>
       <Navbar bg="white" expand="sm" sticky="top" className="navbar">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
         <Link to="/">
           <img
             alt=""
