@@ -30,12 +30,22 @@ export default class CardProd extends Component {
     this.getAllProducts()
   }
 
+  // componentDidUpdate = () => {
+  //   axios.get("http://localhost:8000/products?search=" + this.props.keyword)
+  //     .then(({ data }) => {
+  //       this.setState({
+  //         products: data,
+  //       })
+  //     }).catch((err) => {
+  //       console.log(err);
+  //     })
+  // }
+
   
 
   render() {
     const { products } = this.state;
 
-    console.log(products);
     return (
       <>
         <Wrapper>

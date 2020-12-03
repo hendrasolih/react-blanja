@@ -8,6 +8,11 @@ import MyBag from "./MyBag";
 import Checkout from "./Checkout";
 import AddProduct from "./AddProduct";
 import EditProduct from "./EditProduct";
+import Search from "./SearchPage";
+import Login from "./Login";
+import Signup from "./Signup";
+import Resetpassword from "./Resetpassword";
+import KonfirmasiPassword from "./KonfirmasiPassword";
 
 
 
@@ -21,9 +26,11 @@ export default function Router() {
       <Route path="/checkout" component={Checkout} />
       <Route path="/addproduct" component={AddProduct} />
       <Route path="/editproduct/:id" component={EditProduct} />
+      <Route path="/search" component={Search} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
+      <Route path="/resetpassword" component={Resetpassword} />
+      <Route path="/konfirmasipassword" component={KonfirmasiPassword}/>
     </BrowserRouter>
   );
 }
-
-// URL/
-// URL/detail

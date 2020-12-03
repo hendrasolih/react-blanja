@@ -35,7 +35,7 @@ export default function NavbarPage(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Form inline className="form">
             <div className="control">
-              <FormControl type="search" placeholder={props.placeholder} className="w-100" onChange={props.handleChange}/>
+              <FormControl type="search" placeholder={props.placeholder} className="w-100"/>
               <Image src={iconSearch} className="iconSearch"/>
             </div>
             <Button onClick={handleShow} variant="outline-white" className="mr-auto">

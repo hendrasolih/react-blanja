@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 
 import { Wrapper, ImageWrapper, InfoProduct, ProductName, BrandName, IconStar,
    ProductRating, ProductPriceLabel, ProducPrice, ColorLabel, ColorPicker, ButtonCart,
-   ButtonBuyNow, InfoProdctText, InfoProdctTextTitle, Condition, TextDescrip, ButtonUpdateDelete } from './styled/Product-styled';
+   ButtonBuyNow, InfoProdctText, InfoProdctTextTitle, Condition, TextDescrip, ButtonUpdateDelete,
+   AiOutlinePlusCircleStyled, AiOutlineMinusCircleStyled } from './styled/Product-styled';
 import './fonts.css';
 import ImgGallery from "./ImgGallery";
 
@@ -43,16 +44,18 @@ export default function ForProductPage(props) {
             <div className="d-flex justify-content-between w-50">
               <div className="d-flex flex-column">
                 <div>Size</div>
-                <div>
-                  <AiOutlineMinusCircle/> 28 <AiOutlinePlusCircle />
+                <div className="d-flex">
+                  <AiOutlineMinusCircleStyled/>
+                    <h5 className="pl-2 pr-2 pt-1"> 28 </h5>
+                  <AiOutlinePlusCircleStyled />
                 </div>
               </div>
               <div className="d-flex flex-column">
                   <div>Jumlah</div>
-                  <div>
-                    <AiOutlineMinusCircle onClick={decrement}/>
-                      <h5>{counter}</h5>
-                    <AiOutlinePlusCircle onClick={increment}/>
+                  <div className="d-flex">
+                    <AiOutlineMinusCircleStyled onClick={decrement}/>
+                      <h5 className="pl-2 pr-2 pt-1">{counter}</h5>
+                    <AiOutlinePlusCircleStyled onClick={increment}/>
                   </div>
               </div>
             </div>

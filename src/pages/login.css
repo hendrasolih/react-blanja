@@ -1,0 +1,154 @@
+.login-body {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-main {
+  width: 28%;
+  margin-top: 7vh;
+  margin-bottom: 10vh;
+  font-family: 'Metropolis Bold';
+  display: flex;
+  flex-direction: column;
+}
+
+.login-p {
+  text-align: center;
+  font-size: 18px;
+  line-height: 18px;
+  margin-top: 40px;
+}
+
+.login-logo {
+  /* border: 1px solid blue; */
+  margin: auto;
+  color: #DB3022;
+  display: flex;
+  justify-content: center;
+}
+
+.login-logo-p {
+  margin-left: 4px !important;
+  margin-top: 20px !important;
+  font-size: 28px !important;
+  line-height: 20px !important;
+}
+
+.button-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.button-seller,
+.button-customer {
+  font-family: 'Metropolis';
+  font-size: 14px;
+  line-height: 20px;
+  width: 40%;
+  height: 48px;
+}
+
+.button-seller {
+  border: none;
+  background-color: #DB3022;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: #fff;
+}
+
+.button-customer {
+  border: 1px solid #9B9B9B;
+  background-color: #fff;
+  color: #9B9B9B;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  margin-right: -1px;
+}
+
+.login-form {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-input {
+  height: 48px;
+  font-family: 'Metropolis';
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 23.3px;
+  color: #9B9B9B;
+  border: 1px solid #9B9B9B;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+#input-email {
+  margin-bottom: 16px;
+}
+
+.login-button-primary {
+  border: none;
+  margin-top: 26px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  background-color: #DB3022;
+  color: #fff;
+  height: 48px;
+  /* width: 401px; */
+}
+
+#link {
+  font-family: "Metropolis Light";
+  text-decoration: none;
+  margin-top: 26px;
+  text-align: right;
+  font-size: 14px;
+  line-height: 14px;
+  color: #DB3022;
+}
+
+.login-button-primary-a {
+  font-family: "Metropolis Light";
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.login-button-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+#form-p {
+  margin-top: 40px;
+  text-align: center;
+  font-family: "Metropolis Light";
+  font-size: 14px;
+  line-height: 14px;
+  text-decoration: none;
+}
+
+.konfirmasi-pass-parf {
+  font-size: 14px;
+  line-height: 20px;
+  color: #F01F0E;
+  text-align: center;
+  font-family: "Metropolis Light";
+
+}
+
+

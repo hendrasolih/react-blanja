@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Image, Button } from 'react-bootstrap';
 import { BsFillStarFill } from "react-icons/bs";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 
 const IconStar = styled(BsFillStarFill)`
     color: #FFBA49;
@@ -144,7 +145,17 @@ const ButtonUpdateDelete = styled.button`
     width: 25%;
 `;
 
+const AiOutlinePlusCircleStyled = styled(AiOutlinePlusCircle)`
+    width: 36px;
+    height: 36px;
+`;
+
+const AiOutlineMinusCircleStyled = styled(AiOutlineMinusCircle)`
+    width: 36px;
+    height: 36px;
+`;
+
 export {Wrapper, MainImg, ImageWrapper, InfoProduct, ProductName,
      BrandName, IconStar, ProductRating, ProductPriceLabel, ProducPrice,
      ColorLabel, ColorPicker, ButtonCart, ButtonBuyNow, InfoProdctText, InfoProdctTextTitle, Condition,
-     TextDescrip, ButtonUpdateDelete };
+     TextDescrip, ButtonUpdateDelete, AiOutlinePlusCircleStyled, AiOutlineMinusCircleStyled };

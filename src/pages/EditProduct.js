@@ -21,19 +21,6 @@ export class EditProduct extends Component {
         "prd_rating":"",
     }
 
-    getProduct = () => {
-        const { match } = this.props;
-        axios
-            .get("http://localhost:8000/product/" + match.params.id)
-            .then(({ data })=>{
-                this.setState({
-                  product: data.data[0],
-                });
-              }).catch((err) => {
-                console.log(err);
-              })
-    };
-
     componentDidMount = async() =>{
         const { match } = this.props;
         const res = await axios.get("http://localhost:8000/product/" + match.params.id);
