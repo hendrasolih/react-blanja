@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import { Provider } from "react-redux";
 
 import Home from "./Home";
 import Product from "./Product";
@@ -14,23 +15,27 @@ import Signup from "./Signup";
 import Resetpassword from "./Resetpassword";
 import KonfirmasiPassword from "./KonfirmasiPassword";
 
+import store from "../redux/store";
 
+//component={() => <PropsPage title={`Props through component`} />}
 
 export default function Router() {
   return (
-    <BrowserRouter>
-      <Route path="/" exact component={Home} />
-      <Route path="/product/:id" component={Product} />
-      <Route path="/category/:category" component={CategoryPage} />
-      <Route path="/mybag" component={MyBag} />
-      <Route path="/checkout" component={Checkout} />
-      <Route path="/addproduct" component={AddProduct} />
-      <Route path="/editproduct/:id" component={EditProduct} />
-      <Route path="/search" component={Search} />
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/resetpassword" component={Resetpassword} />
-      <Route path="/konfirmasipassword" component={KonfirmasiPassword}/>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Route path="/" exact component={Home} />
+        <Route path="/product/:id" component={Product} />
+        <Route path="/category/:category" component={CategoryPage} />
+        <Route path="/mybag" component={MyBag} />
+        <Route path="/checkout" component={Checkout} />
+        <Route path="/addproduct" component={AddProduct} />
+        <Route path="/editproduct/:id" component={EditProduct} />
+        <Route path="/search" component={Search} />
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/resetpassword" component={Resetpassword} />
+        <Route path="/konfirmasipassword" component={KonfirmasiPassword} />
+      </BrowserRouter>
+    </Provider>
   );
 }

@@ -63,10 +63,10 @@ export class EditProduct extends Component {
                     <Form.Group>
                     <Form.Row>
                         <Form.Label column lg={2}>
-                        Nama
+                        Name
                         </Form.Label>
                         <Col>
-                        <Form.Control type="text" name="prd_name" value={prd_name} placeholder="Nama" onChange={this.handlerChange}/>
+                        <Form.Control type="text" name="prd_name" value={prd_name} placeholder="Name" onChange={this.handlerChange}/>
                         </Col>
                     </Form.Row>
                     <Form.Row>

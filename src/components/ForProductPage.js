@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
+// import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 import { Wrapper, ImageWrapper, InfoProduct, ProductName, BrandName, IconStar,
@@ -18,7 +18,9 @@ export default function ForProductPage(props) {
     setCounter(prev => prev + 1);
   }
   const decrement = () => {
-    setCounter(prev => prev - 1);
+    if(counter !== 0){
+      setCounter(prev => prev - 1);
+    }
   }
 
   

@@ -3,7 +3,7 @@ import { Image, Button } from 'react-bootstrap';
 import { BsFillStarFill } from "react-icons/bs";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 
-import {createBreakpoint, createMap} from 'styled-components-breakpoint';
+import {createBreakpoint } from 'styled-components-breakpoint';
  
 const breakpoints = {
   xs: 0,
@@ -25,11 +25,19 @@ const Wrapper = styled.section`
     margin-left: 10%;
     margin-top: 10vh;
 
+    ${breakpoint('xl')`
+    font-size: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+  `}
+
     ${breakpoint('lg')`
     font-size: 80%;
     margin-right: 5%;
     margin-left: 5%;
   `}
+
+
 `;
 
 const MainImg = styled(Image)`

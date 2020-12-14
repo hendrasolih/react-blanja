@@ -1,5 +1,6 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
 
 import Navbar from '../components/Navbar';
 //import { Wrapper } from '../components/styled/Card-styled';
@@ -66,7 +67,7 @@ export default function MyBag() {
                 <p style={{color: 'gray'}}>Total Price</p>
                 <h5 className="ml-auto">$ 40.0</h5>
               </div>
-              <Button>Buy</Button>
+                <Button><Link to="/checkout">Buy</Link></Button>
           </SummaryPrice>
         </div>
       </Wrapper>

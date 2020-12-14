@@ -34,6 +34,7 @@ const breakpoint = createBreakpoint(breakpoints);
     margin: 0 auto;
     //border: 4px solid purple;
     object-fit: cover;
+    
     ${breakpoint('lg')`
     widht: 80%;
   `}

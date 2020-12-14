@@ -1,56 +1,112 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { AiFillFileAdd } from "react-icons/ai";
 
-import {Navbar, Form, FormControl, Button, Image, Modal} from 'react-bootstrap';
-import logo from '../assets/img/logo-blanja.svg';
-import iconFunnel from '../assets/img/icon-funnel.svg';
-import iconSearch from '../assets/img/icon-search.svg';
-import iconCart from '../assets/img/icon-cart.svg';
-import './navbar.css';
-import {ColorWhite, ColorBlack, ColorThree, ColorFour, ColorFive, ColorSix,
-  Size, SizePicked, Category, CategoryPicked, ModalButton, ModalButtonPicked} from '../components/styled/Modal';
+import { connect } from "react-redux";
 
-export default function NavbarPage(props) {
-        const [show, setShow] = useState(false);
-        const handleClose = () => setShow(false);
-        const handleShow = () => setShow(true);
+import {
+  Navbar,
+  Form,
+  FormControl,
+  Button,
+  Image,
+  Modal,
+} from "react-bootstrap";
+import logo from "../assets/img/logo-blanja.svg";
+import iconFunnel from "../assets/img/icon-funnel.svg";
+import iconSearch from "../assets/img/icon-search.svg";
+import iconCart from "../assets/img/icon-cart.svg";
+import "./navbar.css";
+import {
+  ColorWhite,
+  ColorBlack,
+  ColorThree,
+  ColorFour,
+  ColorFive,
+  ColorSix,
+  Size,
+  SizePicked,
+  Category,
+  CategoryPicked,
+  ModalButton,
+  ModalButtonPicked,
+} from "../components/styled/Modal";
+
+function NavbarPage(props) {
+  const [show, setShow] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const { dispatch, auth } = props;
   return (
     <>
       <Navbar bg="white" expand="sm" sticky="top" className="navbar">
         <Navbar.Brand href="/">
-        <Link to="/">
-          <img
-            alt=""
-            src={logo}
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />{' '}
-        </Link>
-        Blanja
+          <Link to="/">
+            <img
+              alt=""
+              src={logo}
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+            />{" "}
+          </Link>
+          Blanja
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" expand="md" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" expand="lg" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Form inline className="form">
             <div className="control">
-              <FormControl type="search" placeholder={props.placeholder} className="w-100"/>
-              <Image src={iconSearch} className="iconSearch"/>
+              <FormControl
+                type="search"
+                placeholder={props.placeholder}
+                onChange={props.handleChange}
+                className="w-100"
+              />
+              <Image src={iconSearch} className="iconSearch" />
             </div>
-            <Button onClick={handleShow} variant="outline-white" className="mr-auto">
-              <Image src={iconFunnel} className="funnel"/>
+            <Button
+              onClick={handleShow}
+              variant="outline-white"
+              className="mr-auto"
+            >
+              <Image src={iconFunnel} className="funnel" />
             </Button>
-
             <Button variant="outline-white" className="btn-cart mr-3">
-              <Image src={iconCart}  className="cart"/>
+              <Link to="/mybag">
+                <Image src={iconCart} className="cart" />
+              </Link>
             </Button>
-
-            <Button variant="outline-success" className="btn-login mr-3 ml-2">Login</Button>
-            <Button variant="outline-success" className="btn-signup">Signup</Button>
+            {props.auth.isLogin ? (
+              <Button
+                variant="outline-success"
+                className="btn-login mr-3 ml-2"
+                onClick={() => dispatch({ type: "LOGOUT" })}
+              >
+                <Link style={{ color: "white" }} to="/login">
+                  Logout
+                </Link>
+              </Button>
+            ) : (
+              <>
+                <Button
+                  variant="outline-success"
+                  className="btn-login mr-3 ml-2"
+                >
+                  <Link style={{ color: "white" }} to="/login">
+                    Login
+                  </Link>
+                </Button>
+                <Button variant="outline-success" className="btn-login">
+                  <Link style={{ color: "white" }} to="/signup">
+                    Signup
+                  </Link>
+                </Button>
+              </>
+            )}
           </Form>
         </Navbar.Collapse>
-        <Link to="/addproduct"><AiFillFileAdd/></Link>
       </Navbar>
 
       <Modal show={show} onHide={handleClose} animation={false}>
@@ -97,16 +153,24 @@ export default function NavbarPage(props) {
           </div>
         </Modal.Body>
         <Modal.Footer>
-        <div className="d-flex justify-content-center">
-          <ModalButton className="discard mr-3" onClick={handleClose}>
-            discard
-          </ModalButton>
-          <ModalButtonPicked className="discard mr-4" onClick={handleClose}>
-            apply
-          </ModalButtonPicked>
-        </div>
+          <div className="d-flex justify-content-center">
+            <ModalButton className="discard mr-3" onClick={handleClose}>
+              discard
+            </ModalButton>
+            <ModalButtonPicked className="discard mr-4" onClick={handleClose}>
+              apply
+            </ModalButtonPicked>
+          </div>
         </Modal.Footer>
-      </Modal> 
+      </Modal>
     </>
   );
 }
+
+const mapStateToProps = ({ auth }) => {
+  return {
+    auth,
+  };
+};
+
+export default connect(mapStateToProps)(NavbarPage);

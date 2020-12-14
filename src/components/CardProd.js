@@ -1,34 +1,50 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from 'axios';
+import axios from "axios";
 import { Link } from "react-router-dom";
+import { AiFillFileAdd } from "react-icons/ai";
 
-import { Card } from 'react-bootstrap';
-import { Wrapper, HeadText, Text, StyledCard, CardItem } from './styled/Card-styled';
-import { IconStar } from '../components/styled/Product-styled';
+import { Card } from "react-bootstrap";
+import {
+  Wrapper,
+  HeadText,
+  Text,
+  StyledCard,
+  CardItem,
+} from "./styled/Card-styled";
+import { IconStar } from "../components/styled/Product-styled";
 
+import Pagination from "../components/pagination/PaginationComp";
 
 const getUrl = "http://localhost:8000/products?filter=new";
+
+//products?filter=new&limit=4&page=2
+//&page=${this.state.pageInfo.currentPage}
 
 export default class CardProd extends Component {
   state = {
     products: {},
-  }
+    pageInfo: {},
+  };
 
   getAllProducts = () => {
     axios
-      .get(getUrl).then(({ data })=>{
+      .get(getUrl)
+      .then(({ data }) => {
+        console.log(data.data);
         this.setState({
-          products: data,
+          products: data.data,
+          pageInfo: data.data.pageInfo,
         });
-      }).catch((err) => {
-        console.log(err);
       })
-  }
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   componentDidMount = () => {
-    this.getAllProducts()
-  }
+    this.getAllProducts();
+  };
 
   // componentDidUpdate = () => {
   //   axios.get("http://localhost:8000/products?search=" + this.props.keyword)
@@ -41,50 +57,66 @@ export default class CardProd extends Component {
   //     })
   // }
 
-  
-
   render() {
-    const { products } = this.state;
+    const { products, pageInfo } = this.state;
+    console.log(pageInfo);
 
     return (
       <>
         <Wrapper>
           <HeadText>New</HeadText>
           <Text>You’ve never seen it before!</Text>
-          <StyledCard >
-            {products.data && products.data.map(
-              ({ prd_id, prd_brand, prd_name, prd_image, prd_price  }) => {
-                return(
-                  <CardItem key={prd_id} style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={prd_image} />
-                    <Card.Body>
-                    <Card.Title><Link to={`/product/${prd_id}`} style={{color: "black"}}>
-                      {prd_name}</Link></Card.Title>
-                      <Card.Text>
-                          $ {prd_price}
-                      </Card.Text>
-                      <Card.Text>
-                          {prd_brand}
-                      </Card.Text>
-                      <IconStar/><IconStar/><IconStar/><IconStar/><IconStar/>
-                    </Card.Body>
-                    <hr/>
-                    <Link to={"/editproduct/" + prd_id}>
-                      <i className="fa fa-pencil-square-o" aria-hidden="true"/>
-                    </Link>
-                    <br />
-                  </CardItem>
-                )
-              }
-            )}
-            
+          <StyledCard>
+            {products.products &&
+              products.products.map(
+                ({ prd_id, prd_brand, prd_name, prd_image, prd_price }) => {
+                  return (
+                    <CardItem key={prd_id} style={{ width: "18rem" }}>
+                      <Card.Img variant="top" src={prd_image} />
+                      <Card.Body>
+                        <Card.Title>
+                          <Link
+                            to={`/product/${prd_id}`}
+                            style={{ color: "black" }}
+                          >
+                            {prd_name}
+                          </Link>
+                        </Card.Title>
+                        <Card.Text>$ {prd_price}</Card.Text>
+                        <Card.Text>{prd_brand}</Card.Text>
+                        <IconStar />
+                        <IconStar />
+                        <IconStar />
+                        <IconStar />
+                        <IconStar />
+                      </Card.Body>
+                      <hr />
+                      <div className="d-flex">
+                        <Link className="mr-3" to={"/editproduct/" + prd_id}>
+                          <i
+                            className="fa fa-pencil-square-o"
+                            aria-hidden="true"
+                          />
+                        </Link>
+                        <Link to="/addproduct">
+                          <AiFillFileAdd />
+                        </Link>
+                      </div>
+                      <br />
+                    </CardItem>
+                  );
+                }
+              )}
           </StyledCard>
+          <Pagination
+            currentPage={pageInfo.currentPage}
+            totalPage={pageInfo.totalPage}
+          />
         </Wrapper>
       </>
-    )
+    );
   }
 }
-
 
 // export default function CardProd() {
 //   return (

@@ -31,23 +31,25 @@ export default class SearchPage extends Component {
     this.getAllProducts()
   }
 
-  componentDidUpdate = () => {
-    axios.get("http://localhost:8000/products?search=" + this.state.searchField)
-      .then(({ data }) => {
-        this.setState({
-          products: data,
-        })
-      }).catch((err) => {
-        console.log(err);
-      })
-  }
+
+
+  // componentDidUpdate = () => {
+  //   axios.get("http://localhost:8000/products?search=" + this.state.searchField)
+  //     .then(({ data }) => {
+  //       this.setState({
+  //         products: data,
+  //       })
+  //     }).catch((err) => {
+  //       console.log(err);
+  //     })
+  // }
     
     render() {
         const { products } = this.state;
         console.log(this.state.searchField)
         return (
             <div>
-                <Navbar placeholder="Enter Product Name" handleChange={(e)=> this.setState({searchField:e.target.value})}/>
+                <Navbar placeholder="Enter Product Name" handleChange={(e)=> this.setState({searchField:e.target.value})} />
                 <Wrapper>
                 <HeadText>New</HeadText>
                 <Text>You’ve never seen it before!</Text>
