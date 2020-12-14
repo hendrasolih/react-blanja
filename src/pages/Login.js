@@ -36,7 +36,7 @@ class Login extends Component {
     //console.log(data);
   };
   render() {
-    const { dispatch, auth } = this.props;
+    const { auth } = this.props;
     return (
       <div className="login-body">
         {auth.isLogin && <Redirect to="/" />}

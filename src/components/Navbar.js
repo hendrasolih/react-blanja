@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
 import { AiFillFileAdd } from "react-icons/ai";
+import axios from "axios";
 
 import { connect } from "react-redux";
 
@@ -33,12 +34,33 @@ import {
   ModalButtonPicked,
 } from "../components/styled/Modal";
 
+const urlLogout = "http://localhost:8000/auth/logout";
+
 function NavbarPage(props) {
   const [show, setShow] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const { dispatch, auth } = props;
+  const { dispatch } = props;
+
+  const logout = () => {
+    const config = {
+      headers: {
+        "x-access-token": "Bearer " + localStorage.getItem("token"),
+      },
+    };
+    const data = "";
+    axios
+      .post(urlLogout, data, config)
+      .then((res) => {
+        console.log(res);
+        dispatch({ type: "LOGOUT" });
+        localStorage.setItem("token", "");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
       <Navbar bg="white" expand="sm" sticky="top" className="navbar">
@@ -82,7 +104,7 @@ function NavbarPage(props) {
               <Button
                 variant="outline-success"
                 className="btn-login mr-3 ml-2"
-                onClick={() => dispatch({ type: "LOGOUT" })}
+                onClick={logout}
               >
                 <Link style={{ color: "white" }} to="/login">
                   Logout
