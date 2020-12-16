@@ -16,7 +16,7 @@ import { IconStar } from "../components/styled/Product-styled";
 
 import Pagination from "../components/pagination/PaginationComp";
 
-const getUrl = "http://localhost:8000/products?filter=new";
+const getUrl = "http://localhost:8000/products?filter=new&limit=15";
 
 //products?filter=new&limit=4&page=2
 //&page=${this.state.pageInfo.currentPage}
@@ -25,6 +25,8 @@ export default class CardProd extends Component {
   state = {
     products: {},
     pageInfo: {},
+    totalResult: 0,
+    currentPage: 1,
   };
 
   getAllProducts = () => {
@@ -35,6 +37,23 @@ export default class CardProd extends Component {
         this.setState({
           products: data.data,
           pageInfo: data.data.pageInfo,
+          totalResult: data.data.pageInfo.totalResults,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  nextPage = (pageNumber) => {
+    axios
+      .get(getUrl + `&limit=15`)
+      .then(({ data }) => {
+        console.log(data.data);
+        this.setState({
+          products: data.data,
+          pageInfo: data.data.pageInfo,
+          currentPage: pageNumber,
         });
       })
       .catch((err) => {
@@ -60,6 +79,7 @@ export default class CardProd extends Component {
   render() {
     const { products, pageInfo } = this.state;
     console.log(pageInfo);
+    const numberPages = this.state.pageInfo.totalPage;
 
     return (
       <>
@@ -72,7 +92,10 @@ export default class CardProd extends Component {
                 ({ prd_id, prd_brand, prd_name, prd_image, prd_price }) => {
                   return (
                     <CardItem key={prd_id} style={{ width: "18rem" }}>
-                      <Card.Img variant="top" src={prd_image} />
+                      <Card.Img
+                        variant="top"
+                        src={JSON.parse(prd_image).shift()}
+                      />
                       <Card.Body>
                         <Card.Title>
                           <Link
@@ -108,10 +131,15 @@ export default class CardProd extends Component {
                 }
               )}
           </StyledCard>
-          <Pagination
-            currentPage={pageInfo.currentPage}
-            totalPage={pageInfo.totalPage}
-          />
+          {/* {this.state.totalResult > 4 ? (
+            <Pagination
+              pages={numberPages}
+              nextPage={this.nextPage}
+              currentPage={this.state.currentPage}
+            />
+          ) : (
+            ""
+          )} */}
         </Wrapper>
       </>
     );

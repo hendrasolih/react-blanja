@@ -155,6 +155,7 @@ export default class AddProduct extends Component {
                     const file = e.target.files[0];
                     this.setState({ prd_image: file });
                   }}
+                  multiple
                 />
               </Col>
             </Form.Row>

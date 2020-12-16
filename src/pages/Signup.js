@@ -9,9 +9,9 @@ export default class Signup extends Component {
   handleSubmit = (e) => {
     const data = {
       user_name: this.name,
-      //userSeller_email: this.email,
-      //userSeller_phone: this.phoneNumber,
-      //userSeller_storeName: this.storeName,
+      email: this.email,
+      phone_num: this.phoneNumber,
+      store_name: this.storeName,
       user_password: this.password,
       level_id: 2,
     };
@@ -23,6 +23,8 @@ export default class Signup extends Component {
       .catch((err) => {
         console.log(err);
       });
+
+    this.props.history.push("/login");
 
     console.log(data);
   };
@@ -62,7 +64,7 @@ export default class Signup extends Component {
             <input
               className="login-input"
               type="text"
-              pattern="[0-9]"
+              //pattern="[0-9]"
               placeholder="Phone number"
               onChange={(e) => (this.phoneNumber = e.target.value)}
             />

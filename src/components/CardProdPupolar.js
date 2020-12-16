@@ -13,7 +13,7 @@ import {
   CardItem,
 } from "./styled/Card-styled";
 
-const getUrl = "http://localhost:8000/products?filter=rating";
+const getUrl = "http://localhost:8000/products?filter=rating&limit=15";
 
 export default class CardProdPopular extends Component {
   state = {
@@ -54,7 +54,10 @@ export default class CardProdPopular extends Component {
                 ({ prd_id, prd_brand, prd_name, prd_image, prd_price }) => {
                   return (
                     <CardItem key={prd_id} style={{ width: "18rem" }}>
-                      <Card.Img variant="top" src={prd_image} />
+                      <Card.Img
+                        variant="top"
+                        src={JSON.parse(prd_image).shift()}
+                      />
                       <Card.Body>
                         <Card.Title>
                           <Link

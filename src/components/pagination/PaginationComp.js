@@ -1,26 +1,52 @@
-import React, { Component } from "react";
-import { Pagination } from "react-bootstrap";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export default class PaginationComp extends Component {
-  render() {
-    const { totalPage, currentPage } = this.props;
-    let active = currentPage;
-    let items = [];
-    for (let number = 1; number <= totalPage; number++) {
-      items.push(
-        <Pagination.Item key={number} active={number === active}>
-          {number}
-        </Pagination.Item>
-      );
-    }
-    return (
-      <div>
-        <Pagination>
-          <Pagination.Prev />
-          {items}
-          <Pagination.Next />
-        </Pagination>
-      </div>
+const Pagination = (props) => {
+  const pageLinks = [];
+
+  for (let i = 1; i < props.pages + 1; i++) {
+    let active = props.currentPage == i ? "active" : "";
+
+    pageLinks.push(
+      <li
+        className={`waves-effect ${active}`}
+        key={i}
+        onClick={() => props.nextPage(i)}
+      >
+        <a href="#">{i}</a>
+      </li>
     );
   }
-}
+
+  return (
+    <div className="container">
+      <div className="row">
+        <ul className="pagination">
+          {props.currentPage > 1 ? (
+            <li
+              className={`waves-effect`}
+              onClick={() => props.nextPage(props.currentPage - 1)}
+            >
+              <a href="#">Prev</a>
+            </li>
+          ) : (
+            ""
+          )}
+          {pageLinks}
+          {props.currentPage < props.pages + 1 ? (
+            <li
+              className={`waves-effect`}
+              onClick={() => props.nextPage(props.currentPage + 1)}
+            >
+              <a href="#">Next</a>
+            </li>
+          ) : (
+            ""
+          )}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+export default Pagination;

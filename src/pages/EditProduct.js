@@ -17,8 +17,6 @@ export class EditProduct extends Component {
     prd_description: "",
     size_id: "",
     prd_ctg: "",
-    created_at: "",
-    updated_at: "",
     prd_rating: "",
   };
 
@@ -71,10 +69,11 @@ export class EditProduct extends Component {
     data.append("prd_description", this.state.prd_description);
     data.append("size_id", this.state.size_id);
     data.append("prd_ctg", this.state.prd_ctg);
-    data.append("created_at", this.state.created_at);
-    data.append("updated_at", this.state.updated_at);
     data.append("prd_rating", this.state.prd_rating);
-    data.append("image", this.state.prd_image);
+    if (this.state.prd_image != null) {
+      data.append("image", this.state.prd_image);
+    }
+
     const config = {
       headers: {
         "x-access-token": "Bearer " + localStorage.getItem("token"),
@@ -209,6 +208,7 @@ export class EditProduct extends Component {
                     const file = e.target.files[0];
                     this.setState({ prd_image: file });
                   }}
+                  multiple
                 />
               </Col>
             </Form.Row>

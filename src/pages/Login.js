@@ -11,7 +11,7 @@ class Login extends Component {
   handleSubmit = (e) => {
     const { dispatch, auth } = this.props;
     const data = {
-      user_name: this.name,
+      email: this.email,
       //userSeller_email: this.email,
       //userSeller_phone: this.phoneNumber,
       //userSeller_storeName: this.storeName,
@@ -60,7 +60,7 @@ class Login extends Component {
               type="text"
               id="input-email"
               placeholder="Email"
-              onChange={(e) => (this.name = e.target.value)}
+              onChange={(e) => (this.email = e.target.value)}
             />
             <input
               className="login-input"

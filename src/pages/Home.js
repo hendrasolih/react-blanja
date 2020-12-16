@@ -21,7 +21,7 @@ export default class Home extends Component {
         <Carousel />
         <Category />
         <CardProd />
-        {/* <CardProdPopular /> */}
+        <CardProdPopular />
       </>
     );
   }
