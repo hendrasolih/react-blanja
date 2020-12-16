@@ -15,6 +15,8 @@ import Signup from "./Signup";
 import Resetpassword from "./Resetpassword";
 import KonfirmasiPassword from "./KonfirmasiPassword";
 
+import PrivateRoute from "../components/PrivateRoute";
+
 import store from "../redux/store";
 
 //component={() => <PropsPage title={`Props through component`} />}
@@ -24,7 +26,8 @@ export default function Router() {
     <Provider store={store}>
       <BrowserRouter>
         <Route path="/" exact component={Home} />
-        <Route path="/product/:id" component={Product} />
+        <PrivateRoute path="/product/:id" component={Product} />
+        {/* <Route path="/product/:id" component={Product} /> */}
         <Route path="/category/:category" component={CategoryPage} />
         <Route path="/mybag" component={MyBag} />
         <Route path="/checkout" component={Checkout} />
